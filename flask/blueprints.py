@@ -233,6 +233,7 @@ class Blueprint(_PackageBoundObject):
 
         def decorator(f):
             endpoint = options.pop("endpoint", f.__name__)
+            self.add_url_rule(rule, endpoint, f, **options)
             return f
 
         return decorator
